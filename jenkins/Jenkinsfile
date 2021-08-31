@@ -9,7 +9,7 @@ environment {
     stage('Install Packages') {
       steps {
 	echo 'Install Packages..'
-        bat 'npm install'
+        bat 'npm clean-install'
       }
     }
     stage('Test and Build') {
