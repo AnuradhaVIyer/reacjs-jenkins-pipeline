@@ -16,7 +16,7 @@ environment {
       
           steps {
 	    echo 'Running Tests..'
-            bat 'npm run test'
+            bat 'npm test'
           }
         }
     stage('Deploy') {
