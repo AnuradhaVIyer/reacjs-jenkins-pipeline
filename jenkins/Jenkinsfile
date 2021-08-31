@@ -17,7 +17,7 @@ environment {
         stage('Run Tests') {
           steps {
 	    echo 'Running Tests..'
-            bat 'npm run test'
+            bat 'npm test -- --coverage --watchAll=false'
           }
         }
         stage('Create Build Artifacts') {
