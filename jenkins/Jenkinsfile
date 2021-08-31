@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+environment {
+    CI = 'true'
+    HOME = '.'
+    npm_config_cache = 'npm-cache'
+  }
+  stages {
+    stage('Install Packages') {
+      steps {
+	echo 'Install Packages..'
+        bat 'npm install'
+      }
+    }
+    stage('Test and Build') {
+      parallel {
+        stage('Run Tests') {
+          steps {
+	    echo 'Running Tests..'
+            bat 'npm run test'
+          }
+        }
+        stage('Create Build Artifacts') {
+          steps {
+	    echo 'Building Artifacts..'
+            bat 'npm run build'
+          }
+        }
+      }
+    }
+    stage('Deploy') {
+       steps {
+         echo 'Deploying....'
+       }
+    }
+    }
+}
