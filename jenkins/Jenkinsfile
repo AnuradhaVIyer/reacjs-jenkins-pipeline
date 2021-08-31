@@ -9,21 +9,29 @@ environment {
     stage('Install Packages') {
       steps {
 	echo 'Install Packages..'
-        bat 'npm clean-install'
+        bat 'npm install'
       }
     }
     stage('Test and Build') {
-      
+      parallel {
+        stage('Run Tests') {
           steps {
 	    echo 'Running Tests..'
             bat 'npm test -- a --watchAll=false --testMatch "**/src/**/*.test.js'
           }
         }
+        stage('Create Build Artifacts') {
+          steps {
+	    echo 'Building Artifacts..'
+            bat 'npm run build'
+          }
+        }
+      }
+    }
     stage('Deploy') {
        steps {
          echo 'Deploying....'
        }
     }
-    
-}
+    }
 }
