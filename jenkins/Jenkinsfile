@@ -16,7 +16,7 @@ environment {
       
           steps {
 	    echo 'Running Tests..'
-            bat 'npm test'
+            bat 'npm test -- --watchAll --testMatch "**/src/**/*.test.js'
           }
         }
     stage('Deploy') {
