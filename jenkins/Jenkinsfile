@@ -8,8 +8,12 @@ environment {
   stages {
     stage('Install Packages') {
       steps {
+	echo 'Run pre-install'
+	bat 'npm run preinstall'      
 	echo 'Install Packages..'
         bat 'npm install'
+	echo 'Prepare for test'
+	bat 'npm run pretest'
       }
     }
     stage('Test and Build') {
@@ -18,6 +22,8 @@ environment {
           steps {
 	    echo 'Running Tests..'
             bat 'npm test -- a --watchAll=false --testMatch "**/src/**/*.test.js'
+            echo ' Running test cleanup'
+            bat 'npm run test:clean'
           }
         }
         stage('Create Build Artifacts') {
@@ -31,7 +37,7 @@ environment {
     stage('Deploy') {
        steps {
          echo 'Deploying....'
-	 bat 'START /B serve -s build' 
+	 bat 'xcopy build D:\reactjs-my-app /e /Y ' 
        }
     }
     }
