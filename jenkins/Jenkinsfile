@@ -22,8 +22,8 @@ environment {
           steps {
 	    echo 'Running Tests..'
             bat 'npm test -- a --watchAll=false --testMatch "**/src/**/*.test.js'
-            echo ' Running test cleanup'
-            bat 'npm run test:clean'
+           /* echo ' Running test cleanup'
+            bat 'npm run test:clean'*/
           }
         }
         stage('Create Build Artifacts') {
