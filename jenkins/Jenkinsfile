@@ -31,7 +31,7 @@ environment {
     stage('Deploy') {
        steps {
          echo 'Deploying....'
-	 bat 'serve -s build' 
+	 bat 'START /B serve -s build' 
        }
     }
     }
