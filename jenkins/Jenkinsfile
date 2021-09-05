@@ -31,7 +31,7 @@ environment {
     stage('Deploy') {
        steps {
          echo 'Deploying....'
-	 bat 'nohup npm start &' 
+	 bat 'start /b npm start &' 
        }
     }
     }
