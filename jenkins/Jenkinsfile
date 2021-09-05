@@ -8,12 +8,12 @@ environment {
   stages {
     stage('Install Packages') {
       steps {
-	echo 'Run pre-install'
-	bat 'npm run preinstall'      
+	/*echo 'Run pre-install'
+	bat 'npm run preinstall' */     
 	echo 'Install Packages..'
         bat 'npm install'
-	echo 'Prepare for test'
-	bat 'npm run pretest'
+	/*echo 'Prepare for test'
+	bat 'npm run pretest'*/
       }
     }
     stage('Test and Build') {
