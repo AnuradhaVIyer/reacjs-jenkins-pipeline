@@ -31,9 +31,7 @@ environment {
     stage('Deploy') {
        steps {
          echo 'Deploying....'
-	 npm start &
-         sleep 1
-           
+	 npm start 
        }
     }
     }
