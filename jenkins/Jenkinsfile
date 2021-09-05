@@ -37,7 +37,7 @@ environment {
     stage('Deploy') {
        steps {
          echo 'Deploying....'
-	 bat 'xcopy build D:\reactjs-my-app /e /Y ' 
+	 bat 'xcopy build "D:\reactjs-my-app" /e /Y ' 
        }
     }
     }
