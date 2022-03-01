@@ -40,5 +40,12 @@ environment {
 	 bat 'xcopy build D:\\reactjs-my-app /e /Y ' 
        }
     }
+    stage('Start Server') {
+       steps {
+         echo 'Starting Server....'
+	 bat 'cd D:\\reactjs-my-app' 
+	 bat 'npm start'
+       }
+    }
     }
 }
