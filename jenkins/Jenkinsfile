@@ -45,7 +45,7 @@ environment {
     post { 
                 success {  
                     dir('D:\\reactjs-my-app') {
-                            bat 'npm start'
+                            bat 'START /B npm start'
                         }
                 }
             }
